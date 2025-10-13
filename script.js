@@ -1,0 +1,3 @@
+function inputValidate() {
+    return false;
+}

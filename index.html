@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>BrainWave</title>
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <h1>Welcome to BrainWave</h1>
+    <fieldset name="SignIn">
+        <form action="home.html" method="POST" onsubmit="return inputValidate()">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Username or Email" required><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <input type="submit" name="submit" value="Submit"><br>
+            <span>Don't have an account? <a href="signup.html">Create an account</a></span>
+        </form>
+    </fieldset>
+  </body>
+</html>
