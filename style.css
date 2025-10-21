@@ -1,0 +1,53 @@
+/* Navbar Styles */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/*Hero Section Styles*/
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: radial-gradient(circle at top, #111 0%, #000 100%);
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+}
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+.cta-btn {
+    background-color: #ffcc00;
+    border: none;
+    color: #111;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.cta-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
