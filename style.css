@@ -22,6 +22,14 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+
+.nav-links {
+    list-styles: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -86,6 +94,30 @@ login-btn {
 .cta-btn:hover {
     background-color: #e6b800;
     transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background-color: #111;
+}
+.feature-card {
+    background-color: #111;
+    padding: 2rem;
+    border-radius: 15px;        
+    text-align: center;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
 }
 
 /*Footer */
