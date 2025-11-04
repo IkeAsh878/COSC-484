@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
-        <title>Login to - BrainWave</title>
-    </head>
-    <body>
-        <script src="script.js"></script>
-        <h1>Login to BrainWave</h1>
-        <fieldset name="SignIn">
-            <div class="auth-card">
-                <h1>Welcome Back</h1>
-            <form action="home.html" method="POST" onsubmit="return inputValidate()">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Username or Email" required><br>
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" required><br>
-                <input type="submit" name="submit" value="Submit"><br>
-                <span>Don't have an account? <a href="signup.html">Create an account</a></span>
-            </form>
-            </div>
-        </fieldset>
-    </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Login to - BrainWave</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Forum <span>Wave</span></div>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li></ul>
+  </nav>
+
+  <section class="container" style="padding:2rem 1rem;">
+    <div class="card" style="max-width:520px; margin:0 auto;">
+      <h1 style="margin-bottom:12px;">Welcome Back</h1>
+      <form action="home.html" method="GET" onsubmit="return validateLogin(event)">
+        <label for="lg_user">Username</label>
+        <input type="text" id="lg_user" placeholder="Username or Email" required><br><br>
+        <label for="lg_pass">Password</label>
+        <input type="password" id="lg_pass" placeholder="Password" required><br><br>
+        <input class="btn" type="submit" value="Sign In"><br>
+        <p class="small" style="margin-top:8px;">Don't have an account? <a href="signup.html">Create an account</a></p>
+      </form>
+    </div>
+  </section>
+
+  <footer><p>© 2025 BrainWave</p></footer>
+  <script src="script.js"></script>
+</body>
 </html>
