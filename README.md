@@ -10,7 +10,7 @@
   <p><em> With this app, you can share, leave comments, update, and give insight to people on what classes to take and what materials they need to have to succeed in the classes they're taking. </em></p>
  
 
-  <h2><p><em><b> Features of this App: </b></em></p></h2>
+  <h2><p><em><b> Features of This App: </b></em></p></h2>
   <ul>
     <li><em> Community Hubs </em></li>
     <li><em> Support Page (FAQ's) </em></li>
