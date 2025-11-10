@@ -1,4 +1,14 @@
-<h1><em><u>BrainWave</u></em></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel ="stylesheet" href = "style.css">
+  </head>
+<body>
+<p class = "centered-text"> <h1><em><u>BrainWave</u></em></h1> </p>
+</body>
+</html>
+
+</html>
 <img width="300" height="600" alt="ChatGPT Image Nov 3, 2025, 11_44_06 AM" src="https://github.com/user-attachments/assets/e5f61af5-0a2f-4a73-9220-3b2a426ec120" />
 <body>
   
