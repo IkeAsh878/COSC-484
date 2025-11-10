@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>Signup for - BrainWave</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Forum <span>Wave</span></div>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li></ul>
+  </nav>
+  </section>
+
+
+    <!-- Adjusted the input to account for the login Sheet design -->  
+    <section class="container" style="padding:2rem 1rem;">
+        <div class="card" style="max-width:520px; margin:0 auto;"> <!-- unsure what card is here, please advise - Jacob -->
+            <form action= "register_successful.html" method="GET" onsubmit="return validateLogin(event)">
+                <fieldset id="signup">
+                <legend>Sign Up</legend>
+
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" required>
+                <br><br>
+
+                <label for="email">Email Address: </label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password" required><br><br>
+
+                <label for="verify">Verify Password:</label>
+                <input type="password" id="verify" name="verify" required><br><br>
+
+                <br><br>
+                <input type="submit" id="submit" value="submit">
+                </fieldset>
+            </form>
+        </div>
+    </section> 
+
+    <!-- input validation -->
+    <script>
+        const form = document.querySelector("form");
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const verify = document.getElementById("verify");
+        const submit = document.getElementById("submit");
+
+        form.onsubmit = function(event) {
+            if (username.value.length < 6) {
+                alert("username must be at least 6 characters long");
+                return false;
+            }
+            if (username.value.length > 24) {
+                alert("username must be at less than 24 characters long");
+                return false;
+            }
+            if (password.value !== verify.value) {
+                alert("ensure passwords match");
+                return false;
+            }
+            return true;
+        };
+    </script> 
+
+    <footer><p>© 2025 BrainWave</p></footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
