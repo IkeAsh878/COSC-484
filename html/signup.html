@@ -4,21 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/index_style.css" />
   <title>Signup for - BrainWave</title>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="logo">Forum <span>Wave</span></div>
-    <ul class="nav-links"><li><a href="index.html">Home</a></li></ul>
-  </nav>
-  </section>
+    <nav id="desktop-nav">
+        <div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="message.html">Message</a></li>
+                <li><a href="group.html">Group</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="community.html"> Community Hubs</a></li>
+                <li><a href="login.html"> Login</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <form action="">
+                <input type="text" placeholder="Search BrainWave" />
+                <button type="submit">Go</button>
+            </form>
+        </div>
+    </nav>
 
 
     <!-- Adjusted the input to account for the login Sheet design -->  
     <section class="container" style="padding:2rem 1rem;">
         <div class="card" style="max-width:520px; margin:0 auto;"> <!-- unsure what card is here, please advise - Jacob -->
-            <form action= "register_successful.html" method="GET" onsubmit="return validateLogin(event)">
+            <form id="signupForm" action="register_successful.html" method="GET">
                 <fieldset id="signup">
                 <legend>Sign Up</legend>
 
@@ -44,28 +59,32 @@
 
     <!-- input validation -->
     <script>
-        const form = document.querySelector("form");
+        const form = document.getElementById("signupForm");
         const username = document.getElementById("username");
         const password = document.getElementById("password");
         const verify = document.getElementById("verify");
-        const submit = document.getElementById("submit");
 
-        form.onsubmit = function(event) {
-            if (username.value.length < 6) {
-                alert("username must be at least 6 characters long");
+        form.addEventListener("submit", function (event) {
+            
+            if (username.value.trim().length < 6) {
+                event.preventDefault();
+                alert("Username must be at least 6 characters long");
                 return false;
             }
-            if (username.value.length > 24) {
-                alert("username must be at less than 24 characters long");
+            if (username.value.trim().length > 24) {
+                event.preventDefault();
+                alert("Username must be less than 24 characters long");
                 return false;
             }
             if (password.value !== verify.value) {
-                alert("ensure passwords match");
+                event.preventDefault();
+                alert("Ensure passwords match");
                 return false;
             }
+
             return true;
-        };
-    </script> 
+        });
+    </script>
 
     <footer><p>© 2025 BrainWave</p></footer>
     <script src="../js/script.js"></script>
