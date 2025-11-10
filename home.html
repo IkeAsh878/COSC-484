@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <nav id="desktop-nav">
-    <div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#message">Message</a></li>
-        <li><a href="#group">Group</a></li>
-        <li><a href="#support">Support</a></li>
-      </ul>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="home_style.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#message">Message</a></li>
+          <li><a href="#group">Group</a></li>
+          <li><a href="#support">Support</a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <form action="">
+          <input type="text" placeholder="Search BrainWave" />
+          <button type="submit">Go</button>
+        </form>
+      </div>
+    </nav>
 
-<<<<<<< Updated upstream
-  <main class="container" style="padding:16px 0 48px;">
-    <div class="page-tabs">
-      <button class="tab-btn active" data-tab="hubs" type="button">Community Hubs</button>
-      <button class="tab-btn" data-tab="forums" type="button">Class Forums</button>
-      <button class="tab-btn" data-tab="search" type="button">Search</button>
-      <button class="tab-btn" data-tab="support" type="button">Support</button>
-=======
     <!-- Main Panel -->
     <div class="main-panel">
       <div class="panel side-panel">
@@ -65,10 +63,8 @@
         saepe adipisci, tempora ipsum beatae? Minima aperiam, inventore quae repellendus non, 
         perferendis deleniti quas, fugiat mollitia sed dolorem quidem facere.
         Ea sequi harum expedita quis asperiores atque culpa natus magni at? 
-        In illo animi facere harum ipsam earum. Eos, officiis cupiditate similique 
-        culpa quae libero quidem modi atque corporis quaerat?
-        Tempore vel velit soluta blanditiis eaque repudiandae, amet 
-        voluptates eos ducimus. Eligendi porro voluptatibus quisquam vel at velit adipisci amet magni, totam natus modi fugiat cumque quasi reprehenderit incidunt veritatis.
+        In illo animi facere harum ipsam earum. Eos, officiis cupiditate similique culpa quae libero quidem modi atque corporis quaerat?
+        Tempore vel velit soluta blanditiis eaque repudiandae, amet voluptates eos ducimus. Eligendi porro voluptatibus quisquam vel at velit adipisci amet magni, totam natus modi fugiat cumque quasi reprehenderit incidunt veritatis.
         Qui mollitia temporibus voluptate impedit ducimus doloremque culpa vitae corrupti aspernatur libero, aliquam tempore accusamus facilis delectus. Autem nihil sed tempora dicta doloremque, ullam dolor repellat? Nobis excepturi cum repellat.
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, officia, eligendi consequuntur et, tenetur sequi voluptates ipsa dolor magni ex iure incidunt voluptas itaque amet! Nulla molestiae fugit assumenda voluptatibus!
         Accusamus quisquam repellendus, id eum eaque possimus quidem repellat suscipit tempora ratione consequatur tenetur excepturi quaerat voluptatum velit incidunt sint consequuntur. Quia nisi esse iste quod suscipit quidem delectus nostrum!
@@ -80,42 +76,20 @@
           New Post
         </button>
       </div>
->>>>>>> Stashed changes
     </div>
 
-    <!-- Community Hubs -->
-    <section id="hubs" class="section active">
-      <h2>Community Hubs</h2>
-      <p class="small">Pick a department to jump into its class forums.</p>
-      <div id="hubGrid" class="grid"></div>
-    </section>
-
-    <!-- Class Forums -->
-    <section id="forums" class="section">
-      <div class="card">
-        <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
-          <div style="font-weight:700;">Class Discussions</div>
-          <div style="margin-left:auto;"></div>
-          <select id="classPicker"></select>
-          <button class="btn ghost" id="newPostBtn" type="button">New Post</button>
-        </div>
+    <!-- <div class="card">
+        <h3>Send Feedback</h3>
+        <input id="fbEmail" type="text" placeholder="Email (optional)">
+        <br><br> -->
+    <!-- GPT on how todo this correctly -->
+    <!-- <textarea id="fbMsg" placeholder="What can we improve?"></textarea>
+        <br>
+        <button class="btn" id="fbSend" type="button">Send</button>
+        <p id="fbThanks" class="small" style="margin-top:8px;display:none;">Thanks! We’ve received your feedback.</p>
       </div>
-      <div id="postList"></div>
-    </section>
+    </section> -->
 
-    <!-- Search -->
-    <section id="search" class="section">
-      <div class="card">
-        <h3>Search Classes & Posts</h3>
-        <div style="display:flex;gap:.5rem;margin-top:8px;">
-          <input id="searchInput" type="text" placeholder="Try: COSC 175, calculus, textbook, syllabus…">
-          <button id="searchBtn" class="btn" type="button">Search</button>
-        </div>
-      </div>
-      <div id="searchResults"></div>
-    </section>
-
-    <!-- Support summary/details tag reseacrhed -->
     <section id="support" class="section">
       <div class="card">
         <h3>Support & FAQs</h3>
@@ -125,7 +99,10 @@
         </details>
         <details class="faq">
           <summary>How are classes organized?</summary>
-          <p>By department hubs. Each class has its own forum with posts and comments.</p>
+          <p>
+            By department hubs. Each class has its own forum with posts and
+            comments.
+          </p>
         </details>
         <details class="faq">
           <summary>What are the community guidelines?</summary>
@@ -136,22 +113,8 @@
           <p>Post in Support or email the admins.</p>
         </details>
       </div>
-
-      <div class="card">
-        <h3>Send Feedback</h3>
-        <input id="fbEmail" type="text" placeholder="Email (optional)">
-        <br><br>
-          <!-- GPT on how todo this correctly -->
-        <textarea id="fbMsg" placeholder="What can we improve?"></textarea>
-        <br>
-        <button class="btn" id="fbSend" type="button">Send</button>
-        <p id="fbThanks" class="small" style="margin-top:8px;display:none;">Thanks! We’ve received your feedback.</p>
-      </div>
     </section>
-  </main>
-
-  
-  <div id="modalOverlay" class="modal-overlay" style="display:none;">
+    <!-- <div id="modalOverlay" class="modal-overlay" style="display:none;">
     <div class="modal-card">
       <h3 style="margin-bottom:10px;">Create a new post</h3>
       <label for="postTitle">Title</label>
@@ -165,12 +128,12 @@
         <button class="btn" id="submitPost" type="button">Publish</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <footer>
-    <p>© 2025 BrainWave</p>
-  </footer>
+    <footer>
+      <p>© 2025 BrainWave</p>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
