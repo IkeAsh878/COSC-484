@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TUEats Completed</title>
+</head>
+<body>
+    <h1 id="greeting"></h1>
+
+    <ul id="info-list"></ul>
+    
+    <style>
+        #info-list {
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const username = urlParams.get('username');
+        const email = urlParams.get('email');
+        const password = urlParams.get('password');
+        const verify = urlParams.get('verify');
+
+        document.getElementById("greeting").textContent = "Hello: " + username;
+
+        const infoList = document.getElementById("info-list");
+        const fields = {username, email, password};
+        for (const key in fields) {
+            const li = document.createElement("li");
+            li.textContent = (key +": " +fields[key]);
+            infoList.appendChild(li);
+        }
+    </script>
+</body>
+</html>
+
+<!-- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulation</title>
+    <title>Congratulations</title>
 </head>
 <body>
     <h1>Registration Successful</h1>
 </body>
-</html>
+
+-->

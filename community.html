@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/community.css" />
+    <title>Community</title> <!-- adjust to the name of the community later. -->
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar">
+        <div class="logo">Forum <span>Wave</span></div>
+        <ul class="nav-links"><li><a href="index.html">Home</a></li></ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Sidebar: Posts Feed -->
+        <main class="posts-feed">
+            <!-- Community Header -->
+            <header class="community-header">
+                <div class="community-banner">
+                    <img src="Temp images/Generic Logo.png" alt="Community Logo" class="community-logo">
+                    <div class="community-info">
+                        <h1 class="community-title">Community Title</h1>
+                        <button class="btn-join" id="join-community">Join</button>
+                    </div>
+                </div>
+                <button class="btn-create-post" id="create-post">Create Post</button>
+            </header>
+
+            <div class="posts-container" id="posts-container">
+                <!-- Posts will appear here automatically -->
+            </div>
+        </main>
+
+        <!-- Right Sidebar: Community Info -->
+        <aside class="community-sidebar">
+            <div class="sidebar-card">
+                <h3>About Community</h3>
+                <p class="community-description">
+                    This is a placeholder description for the community.
+                </p>
+                <!-- Not sure we want to delve into this, can be deleted later -->
+                <div class="community-stats">
+                    <div class="stat">
+                        <strong>1.2k</strong>
+                        <span>Members</span>
+                    </div>
+                    <div class="stat">
+                        <strong>42</strong>
+                        <span>Online</span>
+                    </div>
+                </div>
+                <p class="creation-date">Created Jan 15, 2024</p>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Moderators</h3>
+                <ul class="mod-list">
+                    <li><a href="#">u/Moderator1</a></li>
+                    <li><a href="#">u/Moderator2</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script src="js/posts.js"></script>
+    <script src="js/community.js"></script>
+</body>
+</html>
+
+<!--Needed:
+    1. Title and image
+    2. Create Post
+    3. Join button
+    4. Posts
+        - Title
+        - Content
+        - User
+        - Date posted
+        - Comments
+        - Votes
+    5. Community Description section
+        - creation date
+        - Moderator list
+        - Community description
+    ** Include Nav Bar
+-->
