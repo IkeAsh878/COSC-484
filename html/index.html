@@ -26,72 +26,34 @@
         </form>
       </div>
     </nav>
-
-    <!-- Main Panel -->
-    <div class="main-panel">
-      <div class="panel side-panel">
-        <div class="button-container">
-
+    <!-- Main feeds where user get update -->
+    <section id="main_feeds">
+      <!-- Containers that has all the feed for current day -->
+      <div class="feeds-container">
+        <div class="post">
+          <!-- Post Header  for user information -->
+          <div class="post-header">
+            <div class="user-info">
+              <span class="username">John</span>
+              <span class="affi">Townson University</span>
+              <span class="post-time">1 hour</span>
+            </div>
+          </div>
+          <!-- Post contents -->
+          <div class="post-content">
+            <!-- should be able to include img, text, or links, probaly video? -->
+            <!-- think about implement latex type text to help write out math equation -->
+            <p>Hi this is Nathan I have a qustion about L'Hopital Rule</p>
+          </div>
+          <!-- Post Interaction/action -->
+          <div class="post-interaction">
+            <button class="action-btn">Like</button>
+            <button class="action-btn">Comment</button>
+            <button class="action-btn">Share</button>
+          </div>
         </div>
       </div>
-
-      <div class="panel mid-panel">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et illum
-        mollitia rem nam cupiditate, odit beatae, ratione optio ad animi
-        perferendis ex consequuntur obcaecati dignissimos corporis repellendus!
-        Possimus, cum quidem.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Accusantium dolorum quas iusto debitis cupiditate. 
-        Harum reiciendis esse earum! Expedita ad soluta enim laboriosam 
-        nisi necessitatibus fuga veniam itaque aliquid eius!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Natus ullam possimus expedita sed nihil cupiditate tempora, 
-        voluptates sapiente quaerat unde? Maiores, assumenda? Deleniti 
-        reprehenderit necessitatibus ipsa, exercitationem odit sit tempore.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Ipsum nesciunt sint hic id illum aliquam quidem magni sit nisi fugiat modi, 
-        corporis est sunt placeat numquam? Velit incidunt quis deleniti?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum recusandae, 
-        expedita voluptatum ipsam explicabo nobis, officiis praesentium rerum iure quae vitae vel deleniti facilis porro eveniet. Sit labore nisi fuga.
-        Culpa autem laudantium aut, provident molestiae consequatur itaque accusantium earum, 
-        saepe adipisci, tempora ipsum beatae? Minima aperiam, inventore quae repellendus non, 
-        perferendis deleniti quas, fugiat mollitia sed dolorem quidem facere.
-        Ea sequi harum expedita quis asperiores atque culpa natus magni at? 
-        In illo animi facere harum ipsam earum. Eos, officiis cupiditate similique culpa quae libero quidem modi atque corporis quaerat?
-        Tempore vel velit soluta blanditiis eaque repudiandae, amet voluptates eos ducimus. Eligendi porro voluptatibus quisquam vel at velit adipisci amet magni, totam natus modi fugiat cumque quasi reprehenderit incidunt veritatis.
-        Qui mollitia temporibus voluptate impedit ducimus doloremque culpa vitae corrupti aspernatur libero, aliquam tempore accusamus facilis delectus. Autem nihil sed tempora dicta doloremque, ullam dolor repellat? Nobis excepturi cum repellat.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, officia, eligendi consequuntur et, tenetur sequi voluptates ipsa dolor magni ex iure incidunt voluptas itaque amet! Nulla molestiae fugit assumenda voluptatibus!
-        Accusamus quisquam repellendus, id eum eaque possimus quidem repellat suscipit tempora ratione consequatur tenetur excepturi quaerat voluptatum velit incidunt sint consequuntur. Quia nisi esse iste quod suscipit quidem delectus nostrum!
-        Blanditiis enim sequi reprehenderit vel deleniti hic possimus expedita, esse accusamus veritatis veniam debitis aspernatur quidem, corporis dolor suscipit neque. Dolores mollitia veritatis consectetur molestiae molestias natus placeat cum quidem?
-      </div>
-
-      <div class="panel side-panel">
-        <button class="btn ghost" id="newPostBtn" type="button">
-          New Post
-        </button>
-      </div>
-    </div>
-    <!-- <div id="modalOverlay" class="modal-overlay" style="display:none;">
-    <!-- <div id="modalOverlay" class="modal-overlay" style="display:none;">
-    <div class="modal-card">
-      <h3 style="margin-bottom:10px;">Create a new post</h3>
-      <label for="postTitle">Title</label>
-      <input id="postTitle" type="text" placeholder="Title (e.g., Midterm study tips?)"><br><br>
-      <label for="postBody">Body</label>
-      <textarea id="postBody" placeholder="Ask a question or share a resource…"></textarea><br>
-      <label for="postAuthor">Name (optional)</label>
-      <input id="postAuthor" type="text" placeholder="Your name (optional)"><br><br>
-      <div style="display:flex;gap:.5rem;justify-content:flex-end;">
-        <button class="btn ghost" id="cancelPostBtn" type="button">Cancel</button>
-        <button class="btn" id="submitPost" type="button">Publish</button>
-      </div>
-    </div>
-  </div> -->
-  </div>
-
-    <footer>
-      <p>© 2025 BrainWave</p>
-    </footer>
+    </section>
 
     <script src="../js/script.js"></script>
   </body>
