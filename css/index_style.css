@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
   /* border: 0; */
 }
 
@@ -19,9 +21,16 @@ nav {
 }
 
 .nav-links {
-  gap: 1.5rem;
+  gap: 1.4rem;
   list-style: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* Logo customize and size */
+#logo {
+  height: 10vh;
+  width: auto;
 }
 
 a {
@@ -35,6 +44,8 @@ a:hover {
   text-underline-offset: 0.5rem;
   text-decoration-color: rgb(181, 181, 181);
 }
+
+/* FEEDS AND POSTS STYLING */
 
 .feeds-container {
   display: flex;
@@ -58,4 +69,25 @@ a:hover {
   display: flex;
   align-items: center;
   margin-right: 0;
+}
+
+/* Hamburger menu */
+
+#hamburger-nav {
+  display: none;
+}
+
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button {
+  display: none;
 }
