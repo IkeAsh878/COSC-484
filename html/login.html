@@ -1,14 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/index_style.css" />
-  <title>Login to - BrainWave</title>
-</head>
-<body>
-    <nav id="desktop-nav">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- <link rel="stylesheet" href="../css/index_style.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login to - BrainWave</title>
+  </head>
+  <body>
+    <header>
+      <nav id="desktop-nav">
+        <a href="#" class="logo-link">
+          <img id="logo" src="../assets/brainwave_logo.svg" alt="logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <!-- <li><a href="message.html">Message</a></li>
+          <li><a href="group.html">Group</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="community.html"> Community Hubs</a></li> -->
+          <li><a href="login.html"> Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper">
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" placeholder="Password" />
+          </div>
+          <div class="remember-me">
+            <label><input type="checkbox" />Remember me</label>
+          </div>
+          <button type="submit" class="btn sbt-btn">Login</button>
+          <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+          </div>
+          <div class="login-register">
+            <p>
+              Don't have an account?<a href="#" class="register-link">
+                Register</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Registration form -->
+      <div class="form-box signup">
+        <h2>Sign Up</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" placeholder="Password" />
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="key"></ion-icon></span>
+            <input type="password" placeholder="Re-type your password" />
+          </div>
+          <button type="submit" class="btn sbt-btn">Register</button>
+          <div class="login-register">
+            <p>
+              Already have an account?<a href="#" class="login-link"> Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- <nav id="desktop-nav">
       <div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -26,9 +108,9 @@
           <button type="submit">Go</button>
         </form>
       </div>
-    </nav>
+    </nav> -->
 
-  <section class="container" style="padding:2rem 1rem;">
+    <!-- <section class="container" style="padding:2rem 1rem;">
     <div class="card" style="max-width:520px; margin:0 auto;">
       <h1 style="margin-bottom:12px;">Welcome Back</h1>
       <form action="index.html" method="GET" onsubmit="return validateLogin(event)">
@@ -40,9 +122,17 @@
         <p class="small" style="margin-top:8px;">Don't have an account? <a href="signup.html">Create an account</a></p>
       </form>
     </div>
-  </section>
+  </section> -->
 
-  <footer><p>© 2025 BrainWave</p></footer>
-  <script src="../js/script.js"></script>
-</body>
+    <!-- <footer><p>© 2025 BrainWave</p></footer> -->
+    <script src="../js/script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
