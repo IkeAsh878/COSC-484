@@ -5,8 +5,7 @@ const cors = require("cors");
 const upload = require("express-fileupload");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const routes = require("./routes/routes")
-
-const app = express();
+const {server, app} = require("./socket/socket");
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json({extended: true}));
@@ -18,5 +17,5 @@ app.use("/api", routes);
 app.use(notFound);
 app.use(errorHandler);
 
-connect(process.env.MONGO_URL).then(app.listen(process.env.PORT, () => console.log(`Server started on ${process.env.PORT}`))).catch(err => console.log(err));
+connect(process.env.MONGO_URL).then(server.listen(process.env.PORT, () => console.log(`Server started on ${process.env.PORT}`))).catch(err => console.log(err));
 

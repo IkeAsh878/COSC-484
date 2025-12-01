@@ -7,7 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const cloudinary = require("../utils/cloudinary");
 
-// --------- Register User ----------
+// --------- Register User ----------------------------------------------------------------
 // POST: api/users/register
 // Unprotected
 
@@ -50,7 +50,7 @@ const registerUser = async (req, res, next) => {
 }
 
 
-// --------- Login User ----------
+// --------- Login User --------------------------------------------------------------------
 // POST: api/users/login
 // Unprotected
 
@@ -82,7 +82,7 @@ const loginUser = async (req, res, next) => {
 }
 
 
-// --------- Get Multiple Users ----------
+// --------- Get Multiple Users ---------------------------------------------------------------------
 // GET: api/users
 // Protected
 
@@ -96,7 +96,7 @@ const getUsers = async (req, res, next) => {
 }
 
 
-// --------- Get User ----------
+// --------- Get User ----------------------------------------------------------------------------------------
 // GET: api/users/:id
 // Protected
 
@@ -114,23 +114,23 @@ const getUser = async (req, res, next) => {
 }
 
 
-// --------- Edit User ----------
+// --------- Edit User -------------------------------------------------------------------------------------------
 // PATCH: api/users/edit
 // Protected
 
 const editUser = async (req, res, next) => {
     try {
         const {fullName, bio} = req.body;
-        const editUser = await UserModel.findByIdAndUpdate(req.user.id, 
+        const editedUser = await UserModel.findByIdAndUpdate(req.user.id, 
             {fullName, bio}, {new: true});
-        res.json(editUser).status(200);
+        res.json(editedUser).status(200);
     } catch (error) {
         return next(new HttpError(error));
     }
 }
 
 
-// --------- Follow/Unfollow User ----------
+// --------- Follow/Unfollow User --------------------------------------------------------------------------
 // GET: api/users/:id/follow-unfollow
 // Protected
 
@@ -168,7 +168,7 @@ const followUnfollowUser = async (req, res, next) => {
 }
 
 
-// --------- Change User Pfp ----------
+// --------- Change User Pfp ---------------------------------------------------------------------------------------------
 // POST: api/users/avatar
 // Protected
 
