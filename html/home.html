@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: #111;
+        padding: 1rem 2rem;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+        font-size: 1rem;
+    }
+
+    .nav-links a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #ff6600;
+        transition: width 0.3s;
+    }
+
+    .nav-links a:hover:after {
+        width: 100%;
+    }
+
+    .hamberger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamberger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: #111;
+            width: 100px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hamberger {
+            display: flex;
+        }
+    }
+
+    .light-mode {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .light-mode nav {
+        background-color: #f0f0f0;
+    }
+
+    .light-mode .nav-links a {
+        color: #333;
+    }
+
+    .light-mode .hamberger div {
+        background-color: #333;
+    }
+
+    #mode-toggle {
+        padding: 5px 10px;
+        background: none;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #mode-toggle.light-mode {
+        border-color: #333;
+        border: 1px solid #333;
+    }
+
+    #mode-toggle:hover {
+        opacity: 0.7;
+    }
+
+    </style>
+<body>
+    <nav aria-label=""Main Navigation">
+        <div class="nav-container">
+
+            <div class="hamberger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#message">Message</a></li>
+            <li><a href="#group">Group</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+
+        <button id="mode-toggle" onclick="toggleMode()">Light Mode</button>
+    </div>
+</nav>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+        function toggleMode() {
+            dcument.body.classList.toggle('light-mode');
+        }
+    </script>>
+</body>
+</html>
