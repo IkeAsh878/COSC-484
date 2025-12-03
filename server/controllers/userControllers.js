@@ -13,39 +13,62 @@ const cloudinary = require("../utils/cloudinary");
 
 const registerUser = async (req, res, next) => {
     try {
-        const {fullName, email, password, confirmPassword, school} = req.body;
-        if (!fullName || !email || !password || !confirmPassword || !school) {
-            return next(new HttpError("Fill in all required fields", 422));
+        const {fullName, username, email, password, confirmPassword, school} = req.body;
+        if (!fullName || !email || !password || !confirmPassword || !school || !username) {
+            return next(new HttpError("Please complete all required fields.", 422));
         }
-        // make email for first letter of email lowercase
-        const lowerCaseEmail = email.toLowerCase();
-        // check if the email already exist in the database
-        const emailExist = await UserModel.findOne({email: lowerCaseEmail});
-        if (emailExist) {
-            return next(new HttpError("Email already exists", 422));
-        }
-        // check if password match with confirm password
+
+        // Check if password match with confirm password
         if (password != confirmPassword) {
             return next(new HttpError("Passwords do not match", 422));
         }
-        // chech passwaord length
-        if(password.length < 6) {
+        
+        // Check password length. no shorter than 6 and no longer than 24
+        if(password.length < 6 || password.length > 24) {
             return next(new HttpError("Password must be longer than 6 characters", 422));
         }
-        // Hash password
+        // change all email to lowercase. Normalize the email
+        const normalizedEmail = email.toLowerCase();
+        // Normalize the username too
+        const normalizedUsername = username.toLowerCase();
+
+        // We want to dual check if the email already exist in the database
+        // or the username already exist in
+        const existingUser = await UserModel.findOne({
+            $or: [
+                {email: normalizedEmail},
+                {username: normalizedUsername}
+            ]
+        });
+
+        // Return error if email or username already exist
+        if (existingUser) {
+            // if email already exist
+            if (existingUser.email === normalizedEmail) {
+                return next(new HttpError("This email already associalted with other account.", 422));
+            }
+            // if username already exist 
+            if (existingUser.username ===normalizedUsername) {
+                return next(new HttpError("This username already exist", 422));
+            }
+        }
+
+        // Encrypt password
         const salt = await bcrypt.genSalt(10);
-        const hashPassword = await bcrypt.hash(password, salt);
-        // Add user to DB
+        const encryptedPassword = await bcrypt.hash(password, salt);
+        // Create new user in the database
+
         const newUser = await UserModel.create({
             fullName,
-            email: lowerCaseEmail,
-            password: hashPassword,
+            username: normalizedUsername,
+            email: normalizedEmail,
+            password: encryptedPassword,
             school
         });
-        res.json(newUser).status(201);
+        res.status(201).json(newUser);
 
-    } catch (error) {
-        return next(new HttpError(error));
+    } catch (err) {
+        return next(new HttpError("Registration failed, please try again.", 500));
     }
 }
 
@@ -58,26 +81,30 @@ const loginUser = async (req, res, next) => {
     try {
         const {email, password} = req.body;
         if (!email || !password) {
-            return next(new HttpError("Fill in all required fields", 422));
+            return next(new HttpError("Please provide both email and password.", 422));
         }
-        // make email lowercase
-        const lowerCaseEmail = email.toLowerCase();
-        // fetch user info from DB
-        const user = await UserModel.findOne({email: lowerCaseEmail});
-        if (!user) {
-            return next(new HttpError("Invalid Email or Password"), 422);
+        // // change all email to lowercase. Normalize the email
+        const normalizedEmail = email.toLowerCase();
+        
+        // Find user info from DB
+        const existingUser = await UserModel.findOne({email: normalizedEmail});
+    
+        let isValidPassword = false;
+
+        // Check user credential
+        if (existingUser) {
+            isValidPassword = await bcrypt.compare(password, existingUser.password);
         }
-        // const {uPassword, ...userInfo} = user;
-        // Compare input password with password in the DB
-        const comparePassword = await bcrypt.compare(password, user?.password);
-        if (!comparePassword) {
-            return next(new HttpError("Invalid Email or Password"), 422);
+
+        if (!existingUser || !isValidPassword) {
+            return next(new HttpError("Invalid credentials. Please check your email and password.", 401));
         }
-        const token = await jwt.sign({id: user?._id}, process.env.JWT_SECRET, {expiresIn: "3h"});
-        res.json({token, id: user?._id}).status(200);
-        // res.json({token, id: user?._id, ...userInfo}).status(200);
-    } catch (error) {
-        return next(new HttpError(error));
+
+        const tokenPayload = {id: existingUser._id};
+        const authToken = await jwt.sign(tokenPayload, process.env.JWT_SECRET, {expiresIn: "3h"});
+        res.status(200).json({token: authToken, id: existingUser._id});
+    } catch (err) {
+        return next(new HttpError("Login failed, please try again later.", 500));
     }
 }
 
@@ -90,8 +117,8 @@ const getUsers = async (req, res, next) => {
     try {
         const users = await UserModel.find().limit(10).sort({createdAt: -1});
         res.json(users).status(200);
-    } catch (error) {
-        return next(new HttpError(error));
+    } catch (err) {
+        return next(new HttpError(err));
     }
 }
 
@@ -108,8 +135,8 @@ const getUser = async (req, res, next) => {
             return next(new HttpError("User Not Found", 422));
         }
         res.json(user).status(200);
-    } catch (error) {
-        return next(new HttpError(error));
+    } catch (err) {
+        return next(new HttpError(err));
     }
 }
 
@@ -124,8 +151,8 @@ const editUser = async (req, res, next) => {
         const editedUser = await UserModel.findByIdAndUpdate(req.user.id, 
             {fullName, bio}, {new: true});
         res.json(editedUser).status(200);
-    } catch (error) {
-        return next(new HttpError(error));
+    } catch (err) {
+        return next(new HttpError(err));
     }
 }
 
@@ -162,8 +189,8 @@ const followUnfollowUser = async (req, res, next) => {
             )
             res.json(updatedUser)
         }
-    } catch (error) {
-        return next(new HttpError(error));
+    } catch (err) {
+        return next(new HttpError(err));
     }
 }
 
@@ -201,8 +228,8 @@ const changeUserPfp = async (req, res, next) => {
             )
             res.json(updatedUser).status(200);
         })
-    } catch (error) {
-        return next(new HttpError(error));
+    } catch (err) {
+        return next(new HttpError(err));
     }
 }
 

@@ -1,0 +1,211 @@
+/* FONT IMPORT*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* RESET DIMENSIONS */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+/* BODY CUSTOMIZE ---------------------------------------------------------------------------------------------------------*/
+
+html,
+body {
+  height: 100%; /* Ensures they fill their parent (viewport) */
+  min-height: 100vh; /* Ensures they are at least the full viewport height */
+  margin: 0; /* Removes default browser margins */
+  padding: 0; /* Removes default browser padding */
+}
+
+body {
+  /* background-color: #FAEDCD; */
+  background-image: url(../src/assets/brain-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* LOGO CUSTOMIZE AND SIZE --------------------------------------------------------------------------------*/
+/* #logo {
+  height: 10vh;
+  width: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid black;
+} */
+
+/* NAV BAR CUSTOMIZE -------------------------------------------------------------------------------------------- */
+/* nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+
+.nav-links {
+  gap: 1.5rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: rgb(181, 181, 181);
+} */
+
+
+/* LOGIN/SIGNUP PAGES CUSTOMIZE ------------------------------------------------------------------------------------------------------ */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 440px;
+  width: 400px;
+  background: transparent;
+  margin: 10vh;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  transition: height .2s ease;
+  overflow: hidden;
+}
+
+.wrapper.active {
+  height: 700px;
+  /* overflow: hidden; */
+}
+
+.wrapper .form-box.login {
+  transition: transform 0.15s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .form-box.signup {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.wrapper.active .form-box.signup {
+  transition: transform 0.15s ease;
+  transform: translateX(0);
+}
+
+.form-box h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  border-bottom: 2px solid black;
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 600;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 2px;
+  font-size: 1.2em;
+  color: black;
+  line-height: 50px;
+}
+
+.remember-me {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin: -20px 0 15px;
+}
+
+.remember-me label input {
+  accent-color: black;
+  margin-right: 3px;
+}
+
+.btn {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 45px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forgot-password {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.forgot-password a {
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  color: gray;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+.login-register {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.login-register p a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-register p a:hover {
+  color: gray;
+  text-decoration-color: rgb(181, 181, 181);
+}
+/* input::placeholder {
+  color: black;
+}
+
+
+/* SIDE BAR ----------------------------------------------------------------------------------------------------------------------- */
