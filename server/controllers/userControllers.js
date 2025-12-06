@@ -102,7 +102,13 @@ const loginUser = async (req, res, next) => {
 
         const tokenPayload = {id: existingUser._id};
         const authToken = await jwt.sign(tokenPayload, process.env.JWT_SECRET, {expiresIn: "3h"});
-        res.status(200).json({token: authToken, id: existingUser._id});
+        res.status(200).json({token: authToken, 
+            id: existingUser._id,
+            fullName: existingUser.fullName,
+            email: existingUser.email,
+            profilePic: existingUser.profilePic,
+            school: existingUser.school
+        });
     } catch (err) {
         return next(new HttpError("Login failed, please try again later.", 500));
     }

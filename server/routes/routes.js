@@ -7,9 +7,9 @@ const {registerUser, loginUser, getUser, getUsers, editUser,
     followUnfollowUser, changeUserPfp} = require ("../controllers/userControllers");
 
 // Post controllers
-const {createPost, updatePost, deletePost, getPost, 
-    getPosts, getUserPosts, getUserBookmarks, createBookmark, 
-    getFollowingPosts, likeDislikePost} = require("../controllers/postControllers");
+const {createPost, updatePost, deletePost, fetchPost, 
+    fetchFeed, getUserPosts, fetchBookmarkedPosts, toggleBookmark, 
+    getFollowingPosts, toggleLikeStatus} = require("../controllers/postControllers");
 
 // Comment controllers
 const {createComment, getComment, deleteComment} = require("../controllers/commentControllers");
@@ -24,7 +24,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 // User routes
 router.post("/users/register", registerUser);
 router.post("/users/login", loginUser);
-router.get("/users/bookmarks", authMiddleware, getUserBookmarks);
+router.get("/users/bookmarks", authMiddleware, fetchBookmarkedPosts);
 router.get("/users/:id", authMiddleware, getUser);
 router.get("/users", authMiddleware, getUsers);
 router.patch("/users/:id", authMiddleware, editUser);
@@ -39,12 +39,12 @@ router.post("/posts", authMiddleware, createPost);
 // the following endpoint as id endpoint for getPost
 // so we put in before getPost
 router.get("/posts/following", authMiddleware, getFollowingPosts);
-router.get("/posts/:id", authMiddleware, getPost);
-router.get("/posts", authMiddleware, getPosts);
+router.get("/posts/:id", authMiddleware, fetchPost);
+router.get("/posts", authMiddleware, fetchFeed);
 router.patch("/posts/:id", authMiddleware, updatePost);
 router.delete("/posts/:id", authMiddleware, deletePost);
-router.get("/posts/:id/like", authMiddleware, likeDislikePost);
-router.get("/posts/:id/bookmark", authMiddleware, createBookmark);
+router.patch("/posts/:id/like", authMiddleware, toggleLikeStatus);
+router.patch("/posts/:id/bookmark", authMiddleware, toggleBookmark);
 
 // -------------------------------------------------------------------------------------------
 // Comment routes

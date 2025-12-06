@@ -87,9 +87,6 @@ const LoginSignup = () => {
             <span className="icon"><IoLockClosed /></span>
             <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} required />
           </div>
-          <div className="remember-me">
-            <label><input type="checkbox" /> Remember me</label>
-          </div>
           <button type="submit" className="btn sbt-btn" disabled={isLoading}>
             {isLoading ? 'Logging in...' : 'Login'}
           </button>
